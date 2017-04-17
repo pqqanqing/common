@@ -10,19 +10,51 @@ import java.util.Date;
 @Getter
 @JsonIgnoreProperties(value = {"basePageResults", "updateTime", "version", "logicDelete"}, allowSetters = true)
 public class BaseDTO extends BaseObject {
-    public Long id;//主键
-    public Date createTime;//创建时间
-    public Date updateTime;//更新时间
-    public Long version;//版本号
-    public Boolean logicDelete;//逻辑删除
+    /**
+     * 主键
+     */
+    public Long id;
+    /**
+     * 创建时间
+     */
+    public Date createTime;
+    /**
+     * 更新时间
+     */
+    public Date updateTime;
+    /**
+     * 版本号
+     */
+    public Long version;
+    /**
+     * 逻辑删除
+     */
+    public Boolean logicDelete;
 
-    public Integer type;//类型
-    public String name;//名称
-    public String memo;//备注
-    public String statusVal;//状态值
-    public String statusDescribe;//状态描述
+    /**
+     * 类型
+     */
+    public Integer type;
+    /**
+     * 名称
+     */
+    public String name;
+    /**
+     * 备注
+     */
+    public String memo;
+    /**
+     * 状态值
+     */
+    public String statusVal;
+    /**
+     * 状态描述
+     */
+    public String statusDescribe;
 
-    //分页信息
+    /**
+     * 分页信息
+     */
     public BasePageResults basePageResults;
 
     public BaseDTO() {

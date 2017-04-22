@@ -63,7 +63,7 @@ public class ResponseResult implements Serializable {
             this.message = businessExecption.getMessage();
         } else {
             this.code = CODE_ERROR;
-            this.message = throwable.getMessage();
+            this.message = throwable.getMessage() == null ? throwable.toString() : throwable.getMessage();
         }
     }
 

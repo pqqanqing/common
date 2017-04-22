@@ -14,6 +14,7 @@ public class FacadeInterceptor implements MethodInterceptor {
         try {
             return methodInvocation.proceed();
         } catch (Throwable e) {
+            e.printStackTrace();
             return new RpcResponse(e);
         }
     }

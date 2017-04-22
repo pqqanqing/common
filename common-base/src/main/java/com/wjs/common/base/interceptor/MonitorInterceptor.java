@@ -32,6 +32,7 @@ public class MonitorInterceptor implements MethodInterceptor {
             this.methodName = methodInvocation.getMethod().getName();
             return methodInvocation.proceed();
         } catch (Throwable e) {
+            e.printStackTrace();
             if (!(e instanceof BusinessExecption)) callPolice(e);
             throw e;
         } finally {

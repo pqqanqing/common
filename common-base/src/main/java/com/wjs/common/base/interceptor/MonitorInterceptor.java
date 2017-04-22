@@ -1,6 +1,7 @@
 package com.wjs.common.base.interceptor;
 
 import com.wjs.common.base.execption.BusinessExecption;
+import lombok.extern.slf4j.Slf4j;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ import static java.util.UUID.randomUUID;
 /**
  * Created by panqingqing on 16/7/31.
  */
+@Slf4j
 public class MonitorInterceptor implements MethodInterceptor {
 
     private static Logger logger = LoggerFactory.getLogger(MonitorInterceptor.class);
@@ -33,6 +35,7 @@ public class MonitorInterceptor implements MethodInterceptor {
             return methodInvocation.proceed();
         } catch (Throwable e) {
             e.printStackTrace();
+            log.info("异常信息如下:", e);
             if (!(e instanceof BusinessExecption)) callPolice(e);
             throw e;
         } finally {

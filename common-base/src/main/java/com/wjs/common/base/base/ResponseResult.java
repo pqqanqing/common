@@ -3,6 +3,7 @@ package com.wjs.common.base.base;
 import com.wjs.common.base.execption.BusinessExecption;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.Serializable;
 
@@ -13,6 +14,7 @@ import java.io.Serializable;
  */
 @Setter
 @Getter
+@Slf4j
 public class ResponseResult implements Serializable {
 
     //这样的代码很脆弱,如果它被重构进超类或子类的话,显示声明类名就会有问题.可以用java7的新特性解决问题.
@@ -64,6 +66,7 @@ public class ResponseResult implements Serializable {
         } else {
             this.code = CODE_ERROR;
             this.message = throwable.getMessage() == null ? throwable.toString() : throwable.getMessage();
+            log.info("异常信息:" + throwable);
         }
     }
 
